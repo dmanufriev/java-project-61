@@ -1,11 +1,20 @@
 plugins {
     id 'java'
+    id 'application'
     id 'se.patrikerdes.use-latest-versions' version '0.2.18'
     id 'com.github.ben-manes.versions' version '0.41.0'
 }
 
 group = 'hexlet.code'
 version = '1.0-SNAPSHOT'
+
+application {
+    mainClass = 'hexlet.code.App'
+}
+
+compileJava {
+    options.release = 17
+}
 
 repositories {
     mavenCentral()
