@@ -22,7 +22,7 @@ public class Calc {
             Engine.askQuestion(firstNum + " " + operations[opNum] + " " + secondNum);
             answer = Engine.getAnswer();
 
-            switch(operations[opNum]) {
+            switch (operations[opNum]) {
                 case '+':
                     operationResult = firstNum + secondNum;
                     break;

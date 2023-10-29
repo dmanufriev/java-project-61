@@ -6,7 +6,7 @@ public class Engine {
 
     private static Scanner scanner;
     private static String playerName;
-    private static final int maxNumCorrectAnswers = 3;
+    private static final int MAX_NUM_CORRECT_ANSWERS = 3;
     private static int numCorrectAnswers = 0;
 
     public static void init(Scanner sc) {
@@ -40,7 +40,7 @@ public class Engine {
         }
 
         System.out.println("Correct!");
-        if (++numCorrectAnswers >= maxNumCorrectAnswers) {
+        if (++numCorrectAnswers >= MAX_NUM_CORRECT_ANSWERS) {
             System.out.println("Congratulations, " + playerName + "!");
             numCorrectAnswers = 0;
             return 0;

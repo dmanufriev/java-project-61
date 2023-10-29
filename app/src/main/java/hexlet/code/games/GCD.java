@@ -8,7 +8,9 @@ public class GCD {
 
     private static int getGCD(int firstNum, int secondNum) {
         int rest = firstNum % secondNum;
-        if (rest == 0)   return secondNum;
+        if (rest == 0) {
+            return secondNum;
+        }
         return getGCD(secondNum, rest);
     }
 
