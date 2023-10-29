@@ -8,3 +8,5 @@
 03 Calc game link: https://asciinema.org/a/FJx2Rozqqzzg9GwuwZjnMkYjT
 
 04 GCD game link: https://asciinema.org/a/M1A1tjDWnOOblzwCWxfCu9Be5
+
+05 Progression game link: https://asciinema.org/a/9JHlcyMIglXe8NkcjICN55rJa

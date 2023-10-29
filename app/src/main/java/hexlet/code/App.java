@@ -4,12 +4,15 @@ import java.util.Scanner;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
+
 public class App {
     private static final int GAME_EXIT = 0;
     private static final int GAME_GREET = 1;
     private static final int GAME_EVEN = 2;
     private static final int GAME_CALC = 3;
     private static final int GAME_GCD = 4;
+    private static final int GAME_PROGRESSION = 5;
 
     public static void main(String[] args) {
         int gameNum = 0;
@@ -19,6 +22,7 @@ public class App {
         System.out.println(GAME_EVEN + " - Even");
         System.out.println(GAME_CALC + " - Calc");
         System.out.println(GAME_GCD + " - GCD");
+        System.out.println(GAME_PROGRESSION + " - Progression");
         System.out.println(GAME_EXIT + " - Exit");
         System.out.print("Your choice: ");
 
@@ -43,6 +47,9 @@ public class App {
                 break;
             case GAME_GCD:
                 GCD.run();
+                break;
+            case GAME_PROGRESSION:
+                Progression.run();
                 break;
             default:
                 break;
