@@ -5,6 +5,7 @@ import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class App {
     private static final int GAME_EXIT = 0;
@@ -13,6 +14,7 @@ public class App {
     private static final int GAME_CALC = 3;
     private static final int GAME_GCD = 4;
     private static final int GAME_PROGRESSION = 5;
+    private static final int GAME_PRIME = 6;
 
     public static void main(String[] args) {
         int gameNum = 0;
@@ -23,6 +25,7 @@ public class App {
         System.out.println(GAME_CALC + " - Calc");
         System.out.println(GAME_GCD + " - GCD");
         System.out.println(GAME_PROGRESSION + " - Progression");
+        System.out.println(GAME_PRIME + " - Prime");
         System.out.println(GAME_EXIT + " - Exit");
         System.out.print("Your choice: ");
 
@@ -50,6 +53,9 @@ public class App {
                 break;
             case GAME_PROGRESSION:
                 Progression.run();
+                break;
+            case GAME_PRIME:
+                Prime.run();
                 break;
             default:
                 break;
