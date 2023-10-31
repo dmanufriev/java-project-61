@@ -28,9 +28,9 @@ public class Progression {
             String progression = "";
             for (int i = 0; i < length; i++) {
                 if (i == hiddenNum) {
-                    progression += " .. ";
+                    progression += ".. ";
                 } else {
-                    progression += " " + (start + i * step) + " ";
+                    progression += (start + i * step) + " ";
                 }
             }
             Engine.askQuestion(progression);
