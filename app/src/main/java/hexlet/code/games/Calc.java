@@ -4,6 +4,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Calc {
+    private static final int MAX_OPERATIONS_NUM = 3;
     public static void run() {
         String answer = "";
         final char[] operations = {'+', '-', '*'};
@@ -15,7 +16,7 @@ public class Calc {
 
         Random random = new Random();
         do {
-            int opNum = random.nextInt(3);
+            int opNum = random.nextInt(MAX_OPERATIONS_NUM);
             int firstNum = random.nextInt(operationLimit[opNum]);
             int secondNum = random.nextInt(operationLimit[opNum]);
 

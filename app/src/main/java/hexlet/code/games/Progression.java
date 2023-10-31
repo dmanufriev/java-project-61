@@ -5,6 +5,11 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Progression {
+    private static final int MAX_START = 100;
+    private static final int MIN_LENGTH = 5;
+    private static final int MAX_LENGTH = 15;
+    private static final int MIN_STEP = 1;
+    private static final int MAX_STEP = 25;
 
     public static void run() {
         String answer = "";
@@ -15,10 +20,10 @@ public class Progression {
 
         Random random = new Random();
         do {
-            int start = random.nextInt(0, 100);
-            int length = random.nextInt(5, 15);
-            int step = random.nextInt(1, 25);
-            int hiddenNum = random.nextInt(0, length);
+            int start = random.nextInt(MAX_START);
+            int length = random.nextInt(MIN_LENGTH, MAX_LENGTH);
+            int step = random.nextInt(MIN_STEP, MAX_STEP);
+            int hiddenNum = random.nextInt(length);
 
             String progression = "";
             for (int i = 0; i < length; i++) {

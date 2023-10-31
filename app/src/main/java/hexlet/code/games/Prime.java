@@ -5,6 +5,7 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class Prime {
+    private static final int MAX_RANDOM = 100;
 
     private static boolean isPrime(int num) {
         if (num < 2) {
@@ -27,7 +28,7 @@ public class Prime {
 
         Random random = new Random();
         do {
-            int questionNum = random.nextInt(100);
+            int questionNum = random.nextInt(MAX_RANDOM);
             Engine.askQuestion(String.valueOf(questionNum));
             answer = Engine.getAnswer();
             correctAnswer = isPrime(questionNum) ? "yes" : "no";

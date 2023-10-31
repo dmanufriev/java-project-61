@@ -33,7 +33,7 @@ public class App {
         try {
             gameNum = scanner.nextInt();
         } catch (Exception e) {
-            System.out.println("Incorrect input. Please enter a number 0...2");
+            System.out.println("Incorrect input. Please enter a number " + GAME_EXIT + ".." + GAME_PRIME);
             return;
         }
 

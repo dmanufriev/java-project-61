@@ -5,6 +5,8 @@ import hexlet.code.Engine;
 import java.util.Random;
 
 public class GCD {
+    private static final int MIN_RANDOM = 1;
+    private static final int MAX_RANDOM = 30;
 
     private static int getGCD(int firstNum, int secondNum) {
         int rest = firstNum % secondNum;
@@ -23,8 +25,8 @@ public class GCD {
 
         Random random = new Random();
         do {
-            int firstNum = random.nextInt(1, 30);
-            int secondNum = random.nextInt(1, 30);
+            int firstNum = random.nextInt(MIN_RANDOM, MAX_RANDOM);
+            int secondNum = random.nextInt(MIN_RANDOM, MAX_RANDOM);
 
             Engine.askQuestion(firstNum + " " + secondNum);
             answer = Engine.getAnswer();
