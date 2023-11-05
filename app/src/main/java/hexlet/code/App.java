@@ -33,14 +33,13 @@ public class App {
         try {
             gameNum = scanner.nextInt();
         } catch (Exception e) {
-            System.out.println("Incorrect input. Please enter a number " + GAME_EXIT + ".." + GAME_PRIME);
-            return;
+            gameNum = -1;
         }
 
         Engine.init(scanner);
         switch (gameNum) {
             case GAME_GREET:
-                Engine.greetPlayer();
+                Cli.greeting(scanner);
                 break;
             case GAME_EVEN:
                 Even.run();
@@ -58,9 +57,9 @@ public class App {
                 Prime.run();
                 break;
             default:
+                System.out.println("Incorrect input. Possible values: " + GAME_EXIT + ".." + GAME_PRIME);
                 break;
         }
-
         scanner.close();
     }
 }
