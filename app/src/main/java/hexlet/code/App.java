@@ -16,9 +16,7 @@ public class App {
     private static final int GAME_PROGRESSION = 5;
     private static final int GAME_PRIME = 6;
 
-    public static void main(String[] args) {
-        int gameNum = 0;
-
+    private static void printMenu() {
         System.out.println("Please enter the game number and press Enter.");
         System.out.println(GAME_GREET + " - Greet");
         System.out.println(GAME_EVEN + " - Even");
@@ -27,15 +25,9 @@ public class App {
         System.out.println(GAME_PROGRESSION + " - Progression");
         System.out.println(GAME_PRIME + " - Prime");
         System.out.println(GAME_EXIT + " - Exit");
-        System.out.print("Your choice: ");
+    }
 
-        Scanner scanner = new Scanner(System.in);
-        try {
-            gameNum = scanner.nextInt();
-        } catch (Exception e) {
-            gameNum = -1;
-        }
-
+    private static void launchGame(Scanner scanner, int gameNum) {
         Engine engine = new Engine(scanner);
         switch (gameNum) {
             case GAME_GREET:
@@ -62,6 +54,20 @@ public class App {
                 System.out.println("Incorrect input. Possible values: " + GAME_EXIT + ".." + GAME_PRIME);
                 break;
         }
+    }
+
+    public static void main(String[] args) {
+        int gameNum = 0;
+
+        printMenu();
+        System.out.print("Your choice: ");
+        Scanner scanner = new Scanner(System.in);
+        try {
+            gameNum = scanner.nextInt();
+        } catch (Exception e) {
+            gameNum = -1;
+        }
+        launchGame(scanner, gameNum);
         scanner.close();
     }
 }
