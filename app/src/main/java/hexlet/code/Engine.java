@@ -28,7 +28,7 @@ public class Engine {
         return scanner.next();
     }
 
-    public void startGame(Game game) {
+    public final void startGame(Game game) {
 
         System.out.println("Welcome to the Brain Games!");
         getPlayerName();
