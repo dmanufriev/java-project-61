@@ -23,12 +23,12 @@ public class Prime implements Game {
     }
 
     @Override
-    public String getRules() {
+    public final String getRules() {
         return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override
-    public String[] getData() {
+    public final String[] getData() {
 
         int questionNum = random.nextInt(maxRandom);
 

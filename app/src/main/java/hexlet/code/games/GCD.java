@@ -20,12 +20,12 @@ public class GCD implements Game {
     }
 
     @Override
-    public String getRules() {
+    public final String getRules() {
         return "Find the greatest common divisor of given numbers.";
     }
 
     @Override
-    public String[] getData() {
+    public final String[] getData() {
 
         int firstNum = random.nextInt(minRandom, maxRandom);
         int secondNum = random.nextInt(minRandom, maxRandom);

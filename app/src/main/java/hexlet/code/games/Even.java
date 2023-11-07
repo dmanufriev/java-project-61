@@ -11,12 +11,12 @@ public class Even implements Game {
     }
 
     @Override
-    public String getRules() {
+    public final String getRules() {
         return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
 
     @Override
-    public String[] getData() {
+    public final String[] getData() {
 
         int randomNum = random.nextInt(maxRandom);
 

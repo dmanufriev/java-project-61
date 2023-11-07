@@ -15,12 +15,12 @@ public class Progression implements Game {
     }
 
     @Override
-    public String getRules() {
+    public final String getRules() {
         return "What number is missing in the progression?";
     }
 
     @Override
-    public String[] getData() {
+    public final String[] getData() {
 
         int start = random.nextInt(maxStart);
         int length = random.nextInt(minLength, maxLength);

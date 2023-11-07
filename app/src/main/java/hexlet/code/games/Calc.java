@@ -13,12 +13,12 @@ public class Calc implements Game {
     }
 
     @Override
-    public String getRules() {
+    public final String getRules() {
         return "What is the result of the expression?";
     }
 
     @Override
-    public String[] getData() {
+    public final String[] getData() {
 
         int opNum = random.nextInt(maxOperationsNum);
         int firstNum = random.nextInt(operationLimit[opNum]);
