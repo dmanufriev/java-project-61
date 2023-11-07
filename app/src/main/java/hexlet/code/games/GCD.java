@@ -1,14 +1,17 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
 import java.util.Random;
 
-public class GCD {
-    private static final int MIN_RANDOM = 1;
-    private static final int MAX_RANDOM = 30;
+public class GCD implements Game {
+    private final int minRandom = 1;
+    private final int maxRandom = 30;
+    private Random random;
 
-    private static int getGCD(int firstNum, int secondNum) {
+    public GCD() {
+        random = new Random();
+    }
+
+    private int getGCD(int firstNum, int secondNum) {
         int rest = firstNum % secondNum;
         if (rest == 0) {
             return secondNum;
@@ -16,21 +19,21 @@ public class GCD {
         return getGCD(secondNum, rest);
     }
 
-    public static void run() {
-        String answer = "";
-        String correctAnswer = "";
+    @Override
+    public String getRules() {
+        return "Find the greatest common divisor of given numbers.";
+    }
 
-        Engine.greetPlayer();
-        System.out.println("Find the greatest common divisor of given numbers.");
+    @Override
+    public String[] getData() {
 
-        Random random = new Random();
-        do {
-            int firstNum = random.nextInt(MIN_RANDOM, MAX_RANDOM);
-            int secondNum = random.nextInt(MIN_RANDOM, MAX_RANDOM);
+        int firstNum = random.nextInt(minRandom, maxRandom);
+        int secondNum = random.nextInt(minRandom, maxRandom);
 
-            Engine.askQuestion(firstNum + " " + secondNum);
-            answer = Engine.getAnswer();
-            correctAnswer = String.valueOf(getGCD(firstNum, secondNum));
-        } while (Engine.checkAnswer(answer, correctAnswer) > 0);
+        String[] data = new String[2];
+        data[0] = firstNum + " " + secondNum;
+        data[1] = String.valueOf(getGCD(firstNum, secondNum));
+
+        return data;
     }
 }

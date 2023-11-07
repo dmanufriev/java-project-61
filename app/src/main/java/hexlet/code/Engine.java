@@ -1,54 +1,51 @@
 package hexlet.code;
 
+import hexlet.code.games.Game;
 import java.util.Scanner;
 
 public class Engine {
+    private Scanner scanner;
+    private String playerName;
+    private final int maxNumCorrectAnswers = 3;
 
-    private static Scanner scanner;
-    private static String playerName;
-    private static final int MAX_NUM_CORRECT_ANSWERS = 3;
-    private static int numCorrectAnswers = 0;
-
-    public static void init(Scanner sc) {
+    public Engine(Scanner sc) {
         scanner = sc;
         playerName = "";
-        numCorrectAnswers = 0;
     }
 
-    public static void greetPlayer() {
-        System.out.println("Welcome to the Brain Games!");
+    private void getPlayerName() {
         System.out.print("May I have your name? ");
         playerName = scanner.next();
         System.out.println("Hello, " + playerName + "!");
     }
 
-    public static void askQuestion(String question) {
+    private void askQuestion(String question) {
         System.out.println("Question: " + question);
     }
 
-    public static String getAnswer() {
+    private String getAnswer() {
         System.out.print("Your answer: ");
         return scanner.next();
     }
 
-    public static int checkAnswer(String answer, String correctAnswer) {
+    public void startGame(Game game) {
 
-        if (!answer.equals(correctAnswer)) {
-            System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
-            System.out.println("Let's try again, " + playerName + "!");
-            return -1;
+        System.out.println("Welcome to the Brain Games!");
+        getPlayerName();
+        System.out.println(game.getRules());
+
+        for (int i = 0; i < maxNumCorrectAnswers; i++) {
+            String[] data = game.getData();
+            askQuestion(data[0]);
+            String answer = getAnswer();
+            if (!answer.equals(data[1])) {
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + data[1] + "'.");
+                System.out.println("Let's try again, " + playerName + "!");
+                return;
+            }
+            System.out.println("Correct!");
         }
 
-        System.out.println("Correct!");
-        if (++numCorrectAnswers >= MAX_NUM_CORRECT_ANSWERS) {
-            System.out.println("Congratulations, " + playerName + "!");
-            numCorrectAnswers = 0;
-            return 0;
-        }
-
-        return 1;
+        System.out.println("Congratulations, " + playerName + "!");
     }
-
-
-
 }

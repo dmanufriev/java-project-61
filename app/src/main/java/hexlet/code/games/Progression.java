@@ -1,41 +1,45 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-
 import java.util.Random;
 
-public class Progression {
-    private static final int MAX_START = 100;
-    private static final int MIN_LENGTH = 5;
-    private static final int MAX_LENGTH = 15;
-    private static final int MIN_STEP = 1;
-    private static final int MAX_STEP = 25;
+public class Progression implements Game {
+    private final int maxStart = 100;
+    private final int minLength = 5;
+    private final int maxLength = 15;
+    private final int minStep = 1;
+    private final int maxStep = 25;
+    private Random random;
 
-    public static void run() {
-        String answer = "";
-        String correctAnswer = "";
+    public Progression() {
+        random = new Random();
+    }
 
-        Engine.greetPlayer();
-        System.out.println("What number is missing in the progression?");
+    @Override
+    public String getRules() {
+        return "What number is missing in the progression?";
+    }
 
-        Random random = new Random();
-        do {
-            int start = random.nextInt(MAX_START);
-            int length = random.nextInt(MIN_LENGTH, MAX_LENGTH);
-            int step = random.nextInt(MIN_STEP, MAX_STEP);
-            int hiddenNum = random.nextInt(length);
+    @Override
+    public String[] getData() {
 
-            String progression = "";
-            for (int i = 0; i < length; i++) {
-                if (i == hiddenNum) {
-                    progression += ".. ";
-                } else {
-                    progression += (start + i * step) + " ";
-                }
+        int start = random.nextInt(maxStart);
+        int length = random.nextInt(minLength, maxLength);
+        int step = random.nextInt(minStep, maxStep);
+        int hiddenNum = random.nextInt(length);
+
+        String progression = "";
+        for (int i = 0; i < length; i++) {
+            if (i == hiddenNum) {
+                progression += ".. ";
+            } else {
+                progression += (start + i * step) + " ";
             }
-            Engine.askQuestion(progression);
-            answer = Engine.getAnswer();
-            correctAnswer = String.valueOf(start + step * hiddenNum);
-        } while (Engine.checkAnswer(answer, correctAnswer) > 0);
+        }
+
+        String[] data = new String[2];
+        data[0] = progression;
+        data[1] = String.valueOf(start + step * hiddenNum);
+
+        return data;
     }
 }

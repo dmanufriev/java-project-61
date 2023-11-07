@@ -1,39 +1,46 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import java.util.Random;
 
-public class Calc {
-    private static final int MAX_OPERATIONS_NUM = 3;
-    public static void run() {
-        String answer = "";
-        final char[] operations = {'+', '-', '*'};
-        final int[] operationLimit = {100, 100, 20};
-        int operationResult = 0;
+public class Calc implements Game {
+    private final int maxOperationsNum = 3;
+    private final char[] operations = {'+', '-', '*'};
+    private final int[] operationLimit = {100, 100, 20};
+    private Random random;
 
-        Engine.greetPlayer();
-        System.out.println("What is the result of the expression?");
+    public Calc() {
+        random = new Random();
+    }
 
-        Random random = new Random();
-        do {
-            int opNum = random.nextInt(MAX_OPERATIONS_NUM);
-            int firstNum = random.nextInt(operationLimit[opNum]);
-            int secondNum = random.nextInt(operationLimit[opNum]);
+    @Override
+    public String getRules() {
+        return "What is the result of the expression?";
+    }
 
-            Engine.askQuestion(firstNum + " " + operations[opNum] + " " + secondNum);
-            answer = Engine.getAnswer();
+    @Override
+    public String[] getData() {
 
-            switch (operations[opNum]) {
-                case '+':
-                    operationResult = firstNum + secondNum;
-                    break;
-                case '-':
-                    operationResult = firstNum - secondNum;
-                    break;
-                default:
-                    operationResult = firstNum * secondNum;
-                    break;
-            }
-        } while (Engine.checkAnswer(answer, String.valueOf(operationResult)) > 0);
+        int opNum = random.nextInt(maxOperationsNum);
+        int firstNum = random.nextInt(operationLimit[opNum]);
+        int secondNum = random.nextInt(operationLimit[opNum]);
+
+        int operationResult;
+        switch (operations[opNum]) {
+            case '+':
+                operationResult = firstNum + secondNum;
+                break;
+            case '-':
+                operationResult = firstNum - secondNum;
+                break;
+            default:
+                operationResult = firstNum * secondNum;
+                break;
+        }
+
+        String[] data = new String[2];
+        data[0] = firstNum + " " + operations[opNum] + " " + secondNum;
+        data[1] = String.valueOf(operationResult);
+
+        return data;
     }
 }

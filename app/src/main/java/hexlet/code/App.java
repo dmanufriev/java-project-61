@@ -36,25 +36,27 @@ public class App {
             gameNum = -1;
         }
 
-        Engine.init(scanner);
+        Engine engine = new Engine(scanner);
         switch (gameNum) {
             case GAME_GREET:
                 Cli.greeting(scanner);
                 break;
             case GAME_EVEN:
-                Even.run();
+                engine.startGame(new Even());
                 break;
             case GAME_CALC:
-                Calc.run();
+                engine.startGame(new Calc());
                 break;
             case GAME_GCD:
-                GCD.run();
+                engine.startGame(new GCD());
                 break;
             case GAME_PROGRESSION:
-                Progression.run();
+                engine.startGame(new Progression());
                 break;
             case GAME_PRIME:
-                Prime.run();
+                engine.startGame(new Prime());
+                break;
+            case GAME_EXIT:
                 break;
             default:
                 System.out.println("Incorrect input. Possible values: " + GAME_EXIT + ".." + GAME_PRIME);
