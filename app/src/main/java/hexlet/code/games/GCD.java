@@ -3,8 +3,8 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class GCD implements Game {
-    private final int minRandom = 1;
-    private final int maxRandom = 30;
+    private static final int MIN_RANDOM = 1;
+    private static final int MAX_RANDOM = 30;
     private Random random;
 
     public GCD() {
@@ -27,8 +27,8 @@ public class GCD implements Game {
     @Override
     public final String[] getData() {
 
-        int firstNum = random.nextInt(minRandom, maxRandom);
-        int secondNum = random.nextInt(minRandom, maxRandom);
+        int firstNum = random.nextInt(MIN_RANDOM, MAX_RANDOM);
+        int secondNum = random.nextInt(MIN_RANDOM, MAX_RANDOM);
 
         String[] data = new String[2];
         data[0] = firstNum + " " + secondNum;

@@ -15,19 +15,9 @@ public class App {
     private static final int GAME_GCD = 4;
     private static final int GAME_PROGRESSION = 5;
     private static final int GAME_PRIME = 6;
+    private static Scanner scanner;
 
-    private static void printMenu() {
-        System.out.println("Please enter the game number and press Enter.");
-        System.out.println(GAME_GREET + " - Greet");
-        System.out.println(GAME_EVEN + " - Even");
-        System.out.println(GAME_CALC + " - Calc");
-        System.out.println(GAME_GCD + " - GCD");
-        System.out.println(GAME_PROGRESSION + " - Progression");
-        System.out.println(GAME_PRIME + " - Prime");
-        System.out.println(GAME_EXIT + " - Exit");
-    }
-
-    private static void launchGame(Scanner scanner, int gameNum) {
+    private static void launchGame(int gameNum) {
         Engine engine = new Engine(scanner);
         switch (gameNum) {
             case GAME_GREET:
@@ -57,17 +47,20 @@ public class App {
     }
 
     public static void main(String[] args) {
-        int gameNum = 0;
 
-        printMenu();
+        System.out.println("Please enter the game number and press Enter.");
+        System.out.println(GAME_GREET + " - Greet");
+        System.out.println(GAME_EVEN + " - Even");
+        System.out.println(GAME_CALC + " - Calc");
+        System.out.println(GAME_GCD + " - GCD");
+        System.out.println(GAME_PROGRESSION + " - Progression");
+        System.out.println(GAME_PRIME + " - Prime");
+        System.out.println(GAME_EXIT + " - Exit");
         System.out.print("Your choice: ");
-        Scanner scanner = new Scanner(System.in);
-        try {
-            gameNum = scanner.nextInt();
-        } catch (Exception e) {
-            gameNum = -1;
-        }
-        launchGame(scanner, gameNum);
+
+        scanner = new Scanner(System.in);
+        int gameNum = scanner.nextInt();
+        launchGame(gameNum);
         scanner.close();
     }
 }

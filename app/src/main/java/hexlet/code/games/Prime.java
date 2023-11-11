@@ -3,7 +3,7 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class Prime implements Game {
-    private final int maxRandom = 100;
+    private static final int MAX_RANDOM = 100;
     private Random random;
 
     public Prime() {
@@ -30,7 +30,7 @@ public class Prime implements Game {
     @Override
     public final String[] getData() {
 
-        int questionNum = random.nextInt(maxRandom);
+        int questionNum = random.nextInt(MAX_RANDOM);
 
         String[] data = new String[2];
         data[0] = String.valueOf(questionNum);

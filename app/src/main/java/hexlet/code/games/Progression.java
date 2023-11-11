@@ -3,11 +3,11 @@ package hexlet.code.games;
 import java.util.Random;
 
 public class Progression implements Game {
-    private final int maxStart = 100;
-    private final int minLength = 5;
-    private final int maxLength = 15;
-    private final int minStep = 1;
-    private final int maxStep = 25;
+    private static final int MAX_START = 100;
+    private static final int MIN_LENGTH = 5;
+    private static final int MAX_LENGTH = 15;
+    private static final int MIN_STEP = 1;
+    private static final int MAX_STEP = 25;
     private Random random;
 
     public Progression() {
@@ -22,22 +22,23 @@ public class Progression implements Game {
     @Override
     public final String[] getData() {
 
-        int start = random.nextInt(maxStart);
-        int length = random.nextInt(minLength, maxLength);
-        int step = random.nextInt(minStep, maxStep);
+        int start = random.nextInt(MAX_START);
+        int length = random.nextInt(MIN_LENGTH, MAX_LENGTH);
+        int step = random.nextInt(MIN_STEP, MAX_STEP);
         int hiddenNum = random.nextInt(length);
 
-        String progression = "";
+        StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < length; i++) {
             if (i == hiddenNum) {
-                progression += ".. ";
+                stringBuilder.append(".. ");
             } else {
-                progression += (start + i * step) + " ";
+                stringBuilder.append(start + i * step);
+                stringBuilder.append(" ");
             }
         }
 
         String[] data = new String[2];
-        data[0] = progression;
+        data[0] = stringBuilder.toString();
         data[1] = String.valueOf(start + step * hiddenNum);
 
         return data;
