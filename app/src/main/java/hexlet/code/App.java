@@ -15,28 +15,26 @@ public class App {
     private static final int GAME_GCD = 4;
     private static final int GAME_PROGRESSION = 5;
     private static final int GAME_PRIME = 6;
-    private static Scanner scanner;
 
     private static void launchGame(int gameNum) {
-        Engine engine = new Engine(scanner);
         switch (gameNum) {
             case GAME_GREET:
-                Cli.greeting(scanner);
+                Cli.greeting();
                 break;
             case GAME_EVEN:
-                engine.startGame(new Even());
+                Engine.startGame(new Even());
                 break;
             case GAME_CALC:
-                engine.startGame(new Calc());
+                Engine.startGame(new Calc());
                 break;
             case GAME_GCD:
-                engine.startGame(new GCD());
+                Engine.startGame(new GCD());
                 break;
             case GAME_PROGRESSION:
-                engine.startGame(new Progression());
+                Engine.startGame(new Progression());
                 break;
             case GAME_PRIME:
-                engine.startGame(new Prime());
+                Engine.startGame(new Prime());
                 break;
             case GAME_EXIT:
                 break;
@@ -58,7 +56,7 @@ public class App {
         System.out.println(GAME_EXIT + " - Exit");
         System.out.print("Your choice: ");
 
-        scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         int gameNum = scanner.nextInt();
         launchGame(gameNum);
         scanner.close();

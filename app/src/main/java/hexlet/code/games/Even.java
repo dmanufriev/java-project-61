@@ -4,11 +4,7 @@ import java.util.Random;
 
 public class Even implements Game {
     private static final int MAX_RANDOM = 1000;
-    private Random random;
-
-    public Even() {
-        random = new Random();
-    }
+    private static Random random = new Random();
 
     private boolean isEven(int num) {
         return (num % 2 == 0);
@@ -24,9 +20,9 @@ public class Even implements Game {
 
         int randomNum = random.nextInt(MAX_RANDOM);
 
-        String[] data = new String[2];
-        data[0] = String.valueOf(randomNum);
-        data[1] = isEven(randomNum) ? "yes" : "no";
+        String[] data = new String[DATA_SIZE];
+        data[QUESTION] = String.valueOf(randomNum);
+        data[CORRECT_ANSWER] = isEven(randomNum) ? "yes" : "no";
 
         return data;
     }

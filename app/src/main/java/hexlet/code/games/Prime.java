@@ -4,11 +4,7 @@ import java.util.Random;
 
 public class Prime implements Game {
     private static final int MAX_RANDOM = 100;
-    private Random random;
-
-    public Prime() {
-        random = new Random();
-    }
+    private static Random random = new Random();
 
     private boolean isPrime(int num) {
         if (num < 2) {
@@ -32,9 +28,9 @@ public class Prime implements Game {
 
         int questionNum = random.nextInt(MAX_RANDOM);
 
-        String[] data = new String[2];
-        data[0] = String.valueOf(questionNum);
-        data[1] = isPrime(questionNum) ? "yes" : "no";
+        String[] data = new String[DATA_SIZE];
+        data[QUESTION] = String.valueOf(questionNum);
+        data[CORRECT_ANSWER] = isPrime(questionNum) ? "yes" : "no";
 
         return data;
     }

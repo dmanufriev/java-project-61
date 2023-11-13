@@ -5,11 +5,7 @@ import java.util.Random;
 public class GCD implements Game {
     private static final int MIN_RANDOM = 1;
     private static final int MAX_RANDOM = 30;
-    private Random random;
-
-    public GCD() {
-        random = new Random();
-    }
+    private static Random random = new Random();
 
     private int getGCD(int firstNum, int secondNum) {
         int rest = firstNum % secondNum;
@@ -30,9 +26,9 @@ public class GCD implements Game {
         int firstNum = random.nextInt(MIN_RANDOM, MAX_RANDOM);
         int secondNum = random.nextInt(MIN_RANDOM, MAX_RANDOM);
 
-        String[] data = new String[2];
-        data[0] = firstNum + " " + secondNum;
-        data[1] = String.valueOf(getGCD(firstNum, secondNum));
+        String[] data = new String[DATA_SIZE];
+        data[QUESTION] = firstNum + " " + secondNum;
+        data[CORRECT_ANSWER] = String.valueOf(getGCD(firstNum, secondNum));
 
         return data;
     }

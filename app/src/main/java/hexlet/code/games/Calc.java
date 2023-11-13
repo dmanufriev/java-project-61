@@ -6,11 +6,7 @@ public class Calc implements Game {
     private static final int MAX_OPERATIONS_NUM = 3;
     private static final char[] OPERATIONS = {'+', '-', '*'};
     private static final int[] OPERATIONS_LIMIT = {100, 100, 20};
-    private Random random;
-
-    public Calc() {
-        random = new Random();
-    }
+    private static Random random = new Random();
 
     @Override
     public final String getRules() {
@@ -36,12 +32,14 @@ public class Calc implements Game {
                 operationResult = firstNum * secondNum;
                 break;
             default:
+                System.out.println("Operation " + opNum + " isn't supported");
+                System.exit(0);
                 break;
         }
 
-        String[] data = new String[2];
-        data[0] = firstNum + " " + OPERATIONS[opNum] + " " + secondNum;
-        data[1] = String.valueOf(operationResult);
+        String[] data = new String[DATA_SIZE];
+        data[QUESTION] = firstNum + " " + OPERATIONS[opNum] + " " + secondNum;
+        data[CORRECT_ANSWER] = String.valueOf(operationResult);
 
         return data;
     }

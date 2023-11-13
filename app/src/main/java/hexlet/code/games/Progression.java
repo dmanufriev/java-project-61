@@ -8,11 +8,7 @@ public class Progression implements Game {
     private static final int MAX_LENGTH = 15;
     private static final int MIN_STEP = 1;
     private static final int MAX_STEP = 25;
-    private Random random;
-
-    public Progression() {
-        random = new Random();
-    }
+    private static Random random = new Random();
 
     @Override
     public final String getRules() {
@@ -37,9 +33,9 @@ public class Progression implements Game {
             }
         }
 
-        String[] data = new String[2];
-        data[0] = stringBuilder.toString();
-        data[1] = String.valueOf(start + step * hiddenNum);
+        String[] data = new String[DATA_SIZE];
+        data[QUESTION] = stringBuilder.toString();
+        data[CORRECT_ANSWER] = String.valueOf(start + step * hiddenNum);
 
         return data;
     }
